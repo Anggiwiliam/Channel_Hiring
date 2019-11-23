@@ -16,7 +16,11 @@ module.exports = {
   searchEngineer: (req, res) => {
     const name = req.query.name
     const skill = req.query.skill
-    engineerModel.searchEngineer(name, skill)
+    const sortChoose = req.query.sortChoose
+    const sortParams = req.query.sortParams
+    const limit = req.query.limit
+    const offset = req.query.offset
+    engineerModel.searchEngineer(name, skill, sortChoose, sortParams, limit, offset)
       .then(result => {
         res.json(result)
       })
@@ -98,16 +102,5 @@ module.exports = {
     .catch(err => {
       console.log(err)
     })
-  },
-  
-  engineerGetToken: (req, res) => {
-    const token = JWT.sign(
-      { id: 1, name: 'Tatas Fachrul' },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: '30s'
-      })
-
-    response(res, 200, token)
   }
 }

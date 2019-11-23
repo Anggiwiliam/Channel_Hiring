@@ -25,6 +25,22 @@ module.exports = {
       })
     })
   },
+  getJwtDB: (registerid) => {
+    return new Promise((resolve, reject) => {
+      conn.query('SELECT jwt FROM register WHERE username = ? LIMIT 1', registerid, (err, result) => {
+        if (err) reject(new Error(err))
+        resolve(result)
+      })
+    })
+  },
+  patchJwtById: (token, username) => {
+    return new Promise((resolve, reject) => {
+      conn.query('UPDATE register set jwt = ? WHERE username = ?', [token, username], (err, result) => {
+        if (err) reject(new Error(err))
+        resolve(result)
+      })
+    })
+  },
 
   deleteRegister: (registerid) => {
     return new Promise((resolve, reject) => {

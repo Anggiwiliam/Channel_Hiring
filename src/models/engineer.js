@@ -25,10 +25,10 @@ module.exports = {
       })
     })
   },
-  searchEngineer: (name,skill) => {
+  searchEngineer: (name,skill,sortParams,sortChoose,limit,offset) => {
     return new Promise((resolve, reject) => {
       conn.query(`SELECT * FROM engineer WHERE name LIKE '%${name}%' 
-      OR skill LIKE '%${skill}%'`,(err, result) => {
+      OR skill LIKE '%${skill}%' ORDER BY ${sortParams} ${sortChoose} LIMIT ${limit} OFFSET ${offset}`,(err, result) => {
         if (!err) {
           resolve(result)
         } else {
@@ -37,29 +37,29 @@ module.exports = {
       })
     })
   },
-  sortEngineer: (name,skill,du) => {
-    return new Promise((resolve, reject) => {
-      conn.query(`SELECT * FROM engineer WHERE name LIKE '%${name}%' 
-      OR skill LIKE '%${skill}%' OR du LIKE '%${du}%'  order by engineerid DESC`,(err, result) => {
-        if (!err) {
-          resolve(result)
-        } else {
-          reject(new Error(err))
-        }
-      })
-    })
-  },
-  pageEngineer: (limit,offset) => {
-    return new Promise((resolve, reject) => {
-      conn.query(`SELECT * FROM engineer LIMIT ${limit} OFFSET ${offset}`,(err, result) => {
-        if (!err) {
-          resolve(result)
-        } else {
-          reject(new Error(err))
-        }
-      })
-    })
-  },
+  // sortEngineer: (name,skill,du) => {
+  //   return new Promise((resolve, reject) => {
+  //     conn.query(`SELECT * FROM engineer WHERE name LIKE '%${name}%' 
+  //     OR skill LIKE '%${skill}%' OR du LIKE '%${du}%'  order by name DESC`,(err, result) => {
+  //       if (!err) {
+  //         resolve(result)
+  //       } else {
+  //         reject(new Error(err))
+  //       }
+  //     })
+  //   })
+  // },
+  // pageEngineer: (limit,offset) => {
+  //   return new Promise((resolve, reject) => {
+  //     conn.query(`SELECT * FROM engineer LIMIT ${limit} OFFSET ${offset}`,(err, result) => {
+  //       if (!err) {
+  //         resolve(result)
+  //       } else {
+  //         reject(new Error(err))
+  //       }
+  //     })
+  //   })
+  // },
 
   addEngineer: (data) => {
     return new Promise((resolve, reject) => {

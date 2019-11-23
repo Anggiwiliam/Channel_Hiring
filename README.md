@@ -1,28 +1,3 @@
-
-  <p align="center">
-  Backend for Application Hiring Engineer
-    <br />
-
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [Introduction](#introduction)
-  * [Built With](#built-with)
-  * [Configuration](#config)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-
-
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -81,7 +56,7 @@ npm install mysql
 
 1. Clone the repo
 ```sh
-git clone https://github.com/phsycodeid/BackendHiringChannel.git
+git clone https://github.com/Anggiwiliam/Channel_Hiring
 ```
 2. Go to Folder
 ```sh
@@ -102,22 +77,3 @@ Start Development Server
 ```JS
 npm start
 ```
-
-
-
-
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
-
-
-
-
-

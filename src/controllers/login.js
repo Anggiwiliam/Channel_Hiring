@@ -9,13 +9,12 @@ module.exports = {
           username,
           password
         }
+        console.log(data.username)
         try {
-            const pass = await loginModel.getLogin(data.username)
-            const result = valid.validLogin(data, pass)
-          
-             res.send(result)
-            }
-        catch(err) {
+            const dbData = await loginModel.getLogin(data.username)
+            const result = valid.validLogin(data, dbData)
+            res.send(result)
+            } catch(err) {
           console.log(err)
         }
       }
