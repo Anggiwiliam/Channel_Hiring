@@ -28,31 +28,9 @@ module.exports = {
         console.log(err)
       })
   },
-  sortEngineer: (req, res) => {
-    const name = req.query.name
-    const skill = req.query.skill
-    const du = req.query.du
-    engineerModel.sortEngineer(name, skill, du)
-      .then(result => {
-        res.json(result)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  },
-  pageEngineer : (req, res) => {
-    const limit = req.query.limit
-    const offset = req.query.offset
-    engineerModel.pageEngineer(limit, offset)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  },
+ 
   addEngineer: (req, res) => {
-    const { name, description, skill, location, dob, showcase, dc, du, role_id } = req.body
+    const { name, description, skill, location, dob, showcase,foto, dc, du, role_id } = req.body
     const data = {
       name,
       description,
@@ -60,6 +38,7 @@ module.exports = {
       location,
       dob,
       showcase,
+      foto,
       dc : new Date(),
       du : new Date(),
       role_id
